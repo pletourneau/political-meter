@@ -4,11 +4,22 @@ function hideResults() {
   document.getElementById("lintLicker").setAttribute("class", "hidden");
 }
 
+
+function advertisement() {
+  // let form = document.querySelector("form");
+  window.alert("This is an advertisement.");
+  document.querySelector("form").removeEventListener("submit", advertisement);
+}
+
 window.onload = function() {
   hideResults();
 
-  document.querySelector("form").onsubmit = function(e) {
-    e.preventDefault();
+// let form = document.querySelector("form");
+// form.addEventListener("submit", function(e) {
+
+  //document.querySelector("form").onsubmit = function(event) {
+  function getContent(event) {
+    event.preventDefault();
     hideResults();
     const res = parseInt(document.querySelector("#q1").value) + parseInt(document.querySelector("#q2").value) + parseInt(document.querySelector("#q3").value) + parseInt(document.querySelector("#q4").value) + parseInt(document.querySelector("#q5").value);
 
@@ -20,4 +31,12 @@ window.onload = function() {
       document.getElementById("lintLicker").removeAttribute("class");
     }
   }
+
+
+
+  
+  document.querySelector("form").addEventListener("submit", getContent);
+  document.querySelector("form").addEventListener("submit", advertisement);
+  
+  
 }
